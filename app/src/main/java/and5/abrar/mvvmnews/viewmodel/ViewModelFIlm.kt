@@ -1,7 +1,8 @@
 package and5.abrar.mvvmnews.viewmodel
 
-import and5.abrar.mvpnews.model.getAllNewsItem
+
 import and5.abrar.mvpnews.network.ApiService
+import and5.abrar.mvvmnews.model.GetAllFilmItem
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,16 +13,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModelNews @Inject constructor(apiService: ApiService):ViewModel() {
-    private var liveDataNews = MutableLiveData<List<getAllNewsItem>>()
-            val news : LiveData<List<getAllNewsItem>> = liveDataNews
+class ViewModelFIlm @Inject constructor(apiService: ApiService): ViewModel() {
+    private var liveDataFilm = MutableLiveData<List<GetAllFilmItem>>()
+    val film : LiveData<List<GetAllFilmItem>> = liveDataFilm
 
     init {
-         viewModelScope.launch {
-            val datanews = apiService.getAllnews()
+        viewModelScope.launch {
+            val datafilm = apiService.getAllfilm()
             delay(2000)
-            liveDataNews.value = datanews
+            liveDataFilm.value = datafilm
         }
     }
-
 }

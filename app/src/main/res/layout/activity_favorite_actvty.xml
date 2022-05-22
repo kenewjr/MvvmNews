@@ -5,19 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.FavoriteActvty">
 
-    <ImageView
-        android:id="@+id/fav"
-        android:src="@drawable/ic_baseline_favorite_24"
+    <TextView
+        android:id="@+id/tv"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="20sp"
-        android:id="@+id/rvNews"
+        android:id="@+id/rv_favnews"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
-
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

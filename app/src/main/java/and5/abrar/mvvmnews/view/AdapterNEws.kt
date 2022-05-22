@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_news.view.*
 
-class AdapterNEws():RecyclerView.Adapter<AdapterNEws.ViewHolder>() {
+class AdapterNEws(private var onclick :(getAllNewsItem)->Unit):RecyclerView.Adapter<AdapterNEws.ViewHolder>() {
     class ViewHolder(itemView : View):RecyclerView.ViewHolder(itemView)
 
     private var datanews : List<getAllNewsItem>? = null
-    fun setDataFilm(news : List<getAllNewsItem>){
+    fun setDataNews(news : List<getAllNewsItem>){
         this.datanews = news
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,6 +24,9 @@ class AdapterNEws():RecyclerView.Adapter<AdapterNEws.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.cardnews.setOnClickListener {
+            onclick(datanews!![position])
+        }
         Glide.with(holder.itemView.context)
             .load(datanews!![position].image)
             .into(holder.itemView.gambarnews)
